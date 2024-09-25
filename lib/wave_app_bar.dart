@@ -4,9 +4,9 @@ class WaveAppBar extends StatelessWidget {
   final double height;
 
   const WaveAppBar({
-    Key? key,
+    super.key,
     required this.height,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -20,32 +20,46 @@ class WaveAppBar extends StatelessWidget {
             fit: BoxFit.cover,
           ),
         ),
-        child: const Padding(
-          padding: EdgeInsets.symmetric(horizontal: 20), // Adjust for alignment
-          child: Align(
-            alignment: Alignment.centerLeft, // Align text to the left
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center, // Center vertically
-              crossAxisAlignment: CrossAxisAlignment.start, // Align text to the start
-              children: [
-                Text(
-                  'Welcome',
-                  style: TextStyle(
-                    fontSize: 24,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                  ),
+        child: Stack(
+          children: [
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 20), // Adjust for alignment
+              child: Align(
+                alignment: Alignment.centerLeft, // Align text to the left
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center, // Center vertically
+                  crossAxisAlignment: CrossAxisAlignment.start, // Align text to the start
+                  children: [
+                    Text(
+                      'Welcome',
+                      style: TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
+                    ),
+                    Text(
+                      'Back',
+                      style: TextStyle(
+                        fontSize: 18,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ],
                 ),
-                Text(
-                  'Back',
-                  style: TextStyle(
-                    fontSize: 18,
-                    color: Colors.white,
-                  ),
-                ),
-              ],
+              ),
             ),
-          ),
+            Positioned(
+              top: 16,
+              left: 16,
+              child: IconButton(
+                icon: const Icon(Icons.arrow_back, color: Colors.white), // Back icon
+                onPressed: () {
+                  Navigator.pop(context); // Navigate back to the previous screen
+                },
+              ),
+            ),
+          ],
         ),
       ),
     );

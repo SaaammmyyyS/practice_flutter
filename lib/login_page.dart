@@ -3,6 +3,8 @@ import 'package:flutter_application_1/wave_app_bar.dart';
 import 'sign_up_screen.dart'; // Import the sign-up screen
 
 class LoginScreen extends StatefulWidget {
+  const LoginScreen({super.key});
+
   @override
   _LoginScreenState createState() => _LoginScreenState();
 }
