@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/wave_app_bar.dart';
-import 'sign_up_screen.dart'; // Import the sign-up screen
+import 'sign_up_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -17,7 +17,6 @@ class _LoginScreenState extends State<LoginScreen> {
   final TextEditingController _passwordController = TextEditingController();
 
   void _validateEmail(String value) {
-    // Regular expression to check if email is valid
     const emailPattern = r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$';
     final isValid = RegExp(emailPattern).hasMatch(value);
     setState(() {
@@ -31,7 +30,6 @@ class _LoginScreenState extends State<LoginScreen> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            // WaveAppBar (half screen height)
             WaveAppBar(height: MediaQuery.of(context).size.height * 0.5, firstText: 'Welcome', secondText: 'Back', useVariant1: true),
             Padding(
               padding: const EdgeInsets.all(20.0),
@@ -40,7 +38,6 @@ class _LoginScreenState extends State<LoginScreen> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    // Email TextField
                     TextFormField(
                       controller: _emailController,
                       onChanged: _validateEmail,
@@ -63,8 +60,6 @@ class _LoginScreenState extends State<LoginScreen> {
                       },
                     ),
                     const SizedBox(height: 20),
-
-                    // Password TextField
                     TextFormField(
                       controller: _passwordController,
                       obscureText: !_isPasswordVisible,
@@ -93,14 +88,10 @@ class _LoginScreenState extends State<LoginScreen> {
                       },
                     ),
                     const SizedBox(height: 10),
-
-                    // Forgot Password
                     Align(
                       alignment: Alignment.centerRight,
                       child: TextButton(
-                        onPressed: () {
-                          // Forgot password logic
-                        },
+                        onPressed: () {},
                         child: const Text(
                           'Forgot Password?',
                           style: TextStyle(
@@ -111,21 +102,18 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                     ),
                     const SizedBox(height: 20),
-
-                    // Login Button
                     SizedBox(
                       width: double.infinity,
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
                           padding: const EdgeInsets.symmetric(vertical: 15),
-                          backgroundColor: Colors.blue[900], // Dark blue
+                          backgroundColor: Colors.blue[900],
                           shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10), // Button radius
+                            borderRadius: BorderRadius.circular(10),
                           ),
                         ),
                         onPressed: () {
                           if (_formKey.currentState!.validate()) {
-                            // Handle login logic
                           }
                         },
                         child: const Text(
@@ -137,8 +125,6 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                     ),
                     const SizedBox(height: 10),
-
-                    // 'OR' Text and Horizontal Rule
                     const Row(
                       children: <Widget>[
                         Expanded(
@@ -154,8 +140,6 @@ class _LoginScreenState extends State<LoginScreen> {
                       ],
                     ),
                     const SizedBox(height: 10),
-
-                    // Sign Up Button
                     SizedBox(
                       width: double.infinity,
                       child: OutlinedButton(
@@ -163,11 +147,10 @@ class _LoginScreenState extends State<LoginScreen> {
                           padding: const EdgeInsets.symmetric(vertical: 15),
                           side: const BorderSide(color: Colors.grey),
                           shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10), // Button radius
+                            borderRadius: BorderRadius.circular(10),
                           ),
                         ),
                         onPressed: () {
-                          // Navigate to Sign Up Screen
                           Navigator.push(
                             context,
                             MaterialPageRoute(

@@ -8,22 +8,32 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
-          // Background image
           Container(
             decoration: const BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('assets/background.jpg'), // Ensure you have this image in your assets
+                image: AssetImage('assets/background.jpg'),
                 fit: BoxFit.cover,
               ),
             ),
           ),
-          // Positioned content at the bottom
           const Positioned(
-            bottom: 200, // Adjust to position above buttons
+            top: 150,
+            left: 0,
+            right: 0,
+            child: Center(
+              child: Image(
+                image: AssetImage('assets/logo.png'),
+                height: 200,
+                fit: BoxFit.contain,
+              ),
+            ),
+          ),
+          const Positioned(
+            bottom: 200,
             left: 16,
             right: 16,
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start, // Align text to the left
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   'Water Delivery',
@@ -46,7 +56,6 @@ class HomeScreen extends StatelessWidget {
               ],
             ),
           ),
-          // Positioned buttons at the bottom
           Positioned(
             bottom: 40,
             left: 16,
@@ -55,44 +64,42 @@ class HomeScreen extends StatelessWidget {
               children: [
                 ElevatedButton(
                   onPressed: () {
-                    // Navigate to login page
-                    Navigator.pushNamed(context, '/login'); // Ensure you have the route set up
+                    Navigator.pushNamed(context, '/login');
                   },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.white, // White background
+                    backgroundColor: Colors.white,
                     padding: const EdgeInsets.symmetric(vertical: 16),
-                    minimumSize: const Size(double.infinity, 50), // Stretch button
-                    side: const BorderSide(color: Colors.blue), // Border color
+                    minimumSize: const Size(double.infinity, 50),
+                    side: const BorderSide(color: Colors.blue),
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8), // Adjust this value for smaller radius
+                      borderRadius: BorderRadius.circular(8),
                     ),
                   ),
                   child: const Text(
                     'Log In',
                     style: TextStyle(
-                      color: Colors.blue, // Blue text color
-                      fontWeight: FontWeight.bold, // Bold text
+                      color: Colors.blue,
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
                 ),
                 const SizedBox(height: 20),
                 OutlinedButton(
                   onPressed: () {
-                    // Navigate to sign up page
-                    Navigator.pushNamed(context, '/signUp'); // Ensure you have the route set up
+                    Navigator.pushNamed(context, '/signUp');
                   },
                   style: OutlinedButton.styleFrom(
                     padding: const EdgeInsets.symmetric(vertical: 16),
-                    minimumSize: const Size(double.infinity, 50), // Stretch button
+                    minimumSize: const Size(double.infinity, 50),
                     backgroundColor: const Color.fromARGB(255, 59, 113, 185),
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8), // Adjust this value for smaller radius
+                      borderRadius: BorderRadius.circular(8),
                     ),
                   ),
                   child: const Text(
                     'Sign Up',
                     style: TextStyle(
-                      color: Colors.white, // White text color
+                      color: Colors.white,
                       fontWeight: FontWeight.bold,
                     ),
                   ),

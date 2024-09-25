@@ -17,7 +17,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
   final TextEditingController _passwordController = TextEditingController();
 
   void _validateEmail(String value) {
-    // Regular expression to check if email is valid
     const emailPattern = r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$';
     final isValid = RegExp(emailPattern).hasMatch(value);
     setState(() {
@@ -31,7 +30,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            // WaveAppBar
             WaveAppBar(
               height: MediaQuery.of(context).size.height * 0.5,
               firstText: 'Create',
@@ -45,13 +43,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    // Name TextField
                     TextFormField(
                       controller: _nameController,
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         labelText: 'Name',
-                        prefixIcon: const Icon(Icons.person),
-                        border: const UnderlineInputBorder(),
+                        prefixIcon: Icon(Icons.person),
+                        border: UnderlineInputBorder(),
                       ),
                       validator: (value) {
                         if (value == null || value.isEmpty) {
@@ -61,8 +58,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       },
                     ),
                     const SizedBox(height: 20),
-
-                    // Email TextField
                     TextFormField(
                       controller: _emailController,
                       onChanged: _validateEmail,
@@ -85,8 +80,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       },
                     ),
                     const SizedBox(height: 20),
-
-                    // Password TextField
                     TextFormField(
                       controller: _passwordController,
                       obscureText: !_isPasswordVisible,
@@ -117,17 +110,15 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       },
                     ),
                     const SizedBox(height: 20),
-
-                    // Sign Up Button
                     SizedBox(
                       width: double.infinity,
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
                           shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(8), // Adjust this value for smaller radius
+                            borderRadius: BorderRadius.circular(8),
                           ),
                           padding: const EdgeInsets.symmetric(vertical: 15),
-                          backgroundColor: Colors.blue[900], // Dark blue
+                          backgroundColor: Colors.blue[900],
                         ),
                         onPressed: () {
                           if (_formKey.currentState!.validate()) {
@@ -143,8 +134,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       ),
                     ),
                     const SizedBox(height: 10),
-
-                    // 'OR' Text and Horizontal Rule
                     const Row(
                       children: <Widget>[
                         Expanded(
@@ -160,14 +149,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       ],
                     ),
                     const SizedBox(height: 10),
-
-                    // Log In Button
                     SizedBox(
                       width: double.infinity,
                       child: OutlinedButton(
                         style: OutlinedButton.styleFrom(
                           shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(8), // Adjust this value for smaller radius
+                            borderRadius: BorderRadius.circular(8),
                           ),
                           padding: const EdgeInsets.symmetric(vertical: 15),
                           side: const BorderSide(color: Colors.grey),
