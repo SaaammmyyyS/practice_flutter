@@ -23,6 +23,7 @@ class HomeScreen extends StatelessWidget {
             left: 16,
             right: 16,
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start, // Align text to the left
               children: [
                 Text(
                   'Water Delivery',
@@ -31,12 +32,12 @@ class HomeScreen extends StatelessWidget {
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
                   ),
-                  textAlign: TextAlign.center,
+                  textAlign: TextAlign.left,
                 ),
                 SizedBox(height: 8),
                 Text(
                   'We deliver water at any point of the Earth in 30 minutes',
-                  textAlign: TextAlign.center,
+                  textAlign: TextAlign.left,
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 16,

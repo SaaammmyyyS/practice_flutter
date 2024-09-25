@@ -32,7 +32,7 @@ class _LoginScreenState extends State<LoginScreen> {
         child: Column(
           children: [
             // WaveAppBar (half screen height)
-            WaveAppBar(height: MediaQuery.of(context).size.height * 0.5, firstText: 'Welcome', secondText: 'Back',),
+            WaveAppBar(height: MediaQuery.of(context).size.height * 0.5, firstText: 'Welcome', secondText: 'Back', useVariant1: true),
             Padding(
               padding: const EdgeInsets.all(20.0),
               child: Form(

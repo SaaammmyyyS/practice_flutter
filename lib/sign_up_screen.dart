@@ -11,11 +11,10 @@ class SignUpScreen extends StatefulWidget {
 class _SignUpScreenState extends State<SignUpScreen> {
   final _formKey = GlobalKey<FormState>();
   bool _isPasswordVisible = false;
-  bool _isConfirmPasswordVisible = false;
   bool _isEmailValid = false;
+  final TextEditingController _nameController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-  final TextEditingController _confirmPasswordController = TextEditingController();
 
   void _validateEmail(String value) {
     // Regular expression to check if email is valid
@@ -37,6 +36,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
               height: MediaQuery.of(context).size.height * 0.5,
               firstText: 'Create',
               secondText: 'Account',
+              useVariant1: false,
             ),
             Padding(
               padding: const EdgeInsets.all(20.0),
@@ -45,6 +45,23 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    // Name TextField
+                    TextFormField(
+                      controller: _nameController,
+                      decoration: InputDecoration(
+                        labelText: 'Name',
+                        prefixIcon: const Icon(Icons.person),
+                        border: const UnderlineInputBorder(),
+                      ),
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'Please enter your name';
+                        }
+                        return null;
+                      },
+                    ),
+                    const SizedBox(height: 20),
+
                     // Email TextField
                     TextFormField(
                       controller: _emailController,
@@ -95,38 +112,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           return 'Please enter your password';
                         } else if (value.length < 6) {
                           return 'Password must be at least 6 characters long';
-                        }
-                        return null;
-                      },
-                    ),
-                    const SizedBox(height: 20),
-
-                    // Confirm Password TextField
-                    TextFormField(
-                      controller: _confirmPasswordController,
-                      obscureText: !_isConfirmPasswordVisible,
-                      decoration: InputDecoration(
-                        labelText: 'Confirm Password',
-                        prefixIcon: const Icon(Icons.lock),
-                        suffixIcon: IconButton(
-                          icon: Icon(
-                            _isConfirmPasswordVisible
-                                ? Icons.visibility
-                                : Icons.visibility_off,
-                          ),
-                          onPressed: () {
-                            setState(() {
-                              _isConfirmPasswordVisible = !_isConfirmPasswordVisible;
-                            });
-                          },
-                        ),
-                        border: const UnderlineInputBorder(),
-                      ),
-                      validator: (value) {
-                        if (value == null || value.isEmpty) {
-                          return 'Please confirm your password';
-                        } else if (value != _passwordController.text) {
-                          return 'Passwords do not match';
                         }
                         return null;
                       },
