@@ -2,10 +2,14 @@ import 'package:flutter/material.dart';
 
 class WaveAppBar extends StatelessWidget {
   final double height;
+  final String firstText; // Add parameter for the first text
+  final String secondText; // Add parameter for the second text
 
   const WaveAppBar({
     super.key,
     required this.height,
+    required this.firstText, // Initialize the first text
+    required this.secondText, // Initialize the second text
   });
 
   @override
@@ -22,8 +26,8 @@ class WaveAppBar extends StatelessWidget {
         ),
         child: Stack(
           children: [
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20), // Adjust for alignment
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20), // Adjust for alignment
               child: Align(
                 alignment: Alignment.centerLeft, // Align text to the left
                 child: Column(
@@ -31,17 +35,18 @@ class WaveAppBar extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start, // Align text to the start
                   children: [
                     Text(
-                      'Welcome',
-                      style: TextStyle(
+                      firstText, // Use the first text parameter
+                      style: const TextStyle(
                         fontSize: 24,
                         fontWeight: FontWeight.bold,
                         color: Colors.white,
                       ),
                     ),
                     Text(
-                      'Back',
-                      style: TextStyle(
-                        fontSize: 18,
+                      secondText, // Use the second text parameter
+                      style: const TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
                         color: Colors.white,
                       ),
                     ),

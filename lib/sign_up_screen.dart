@@ -33,7 +33,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
         child: Column(
           children: [
             // WaveAppBar
-            WaveAppBar(height: MediaQuery.of(context).size.height * 0.5),
+            WaveAppBar(
+              height: MediaQuery.of(context).size.height * 0.5,
+              firstText: 'Create',
+              secondText: 'Account',
+            ),
             Padding(
               padding: const EdgeInsets.all(20.0),
               child: Form(
@@ -49,7 +53,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       decoration: InputDecoration(
                         labelText: 'Email',
                         prefixIcon: const Icon(Icons.email),
-                        suffixIcon: _isEmailValid ? const Icon(Icons.check, color: Colors.green) : null,
+                        suffixIcon: _isEmailValid
+                            ? const Icon(Icons.check, color: Colors.green)
+                            : null,
                         border: const UnderlineInputBorder(),
                       ),
                       validator: (value) {
@@ -72,7 +78,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         prefixIcon: const Icon(Icons.lock),
                         suffixIcon: IconButton(
                           icon: Icon(
-                            _isPasswordVisible ? Icons.visibility : Icons.visibility_off,
+                            _isPasswordVisible
+                                ? Icons.visibility
+                                : Icons.visibility_off,
                           ),
                           onPressed: () {
                             setState(() {
@@ -102,7 +110,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         prefixIcon: const Icon(Icons.lock),
                         suffixIcon: IconButton(
                           icon: Icon(
-                            _isConfirmPasswordVisible ? Icons.visibility : Icons.visibility_off,
+                            _isConfirmPasswordVisible
+                                ? Icons.visibility
+                                : Icons.visibility_off,
                           ),
                           onPressed: () {
                             setState(() {
@@ -128,7 +138,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       width: double.infinity,
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                          padding: const EdgeInsets.symmetric(vertical: 15), backgroundColor: Colors.blue[900], // Dark blue
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8), // Adjust this value for smaller radius
+                          ),
+                          padding: const EdgeInsets.symmetric(vertical: 15),
+                          backgroundColor: Colors.blue[900], // Dark blue
                         ),
                         onPressed: () {
                           if (_formKey.currentState!.validate()) {
@@ -145,11 +159,31 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     ),
                     const SizedBox(height: 10),
 
+                    // 'OR' Text and Horizontal Rule
+                    const Row(
+                      children: <Widget>[
+                        Expanded(
+                          child: Divider(color: Colors.grey),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 10),
+                          child: Text("OR"),
+                        ),
+                        Expanded(
+                          child: Divider(color: Colors.grey),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 10),
+
                     // Log In Button
                     SizedBox(
                       width: double.infinity,
                       child: OutlinedButton(
                         style: OutlinedButton.styleFrom(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8), // Adjust this value for smaller radius
+                          ),
                           padding: const EdgeInsets.symmetric(vertical: 15),
                           side: const BorderSide(color: Colors.grey),
                         ),

@@ -62,6 +62,9 @@ class HomeScreen extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(vertical: 16),
                     minimumSize: const Size(double.infinity, 50), // Stretch button
                     side: const BorderSide(color: Colors.blue), // Border color
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8), // Adjust this value for smaller radius
+                    ),
                   ),
                   child: const Text(
                     'Log In',
@@ -78,15 +81,18 @@ class HomeScreen extends StatelessWidget {
                     Navigator.pushNamed(context, '/signUp'); // Ensure you have the route set up
                   },
                   style: OutlinedButton.styleFrom(
-                    side: const BorderSide(color: Colors.white), // White border
                     padding: const EdgeInsets.symmetric(vertical: 16),
                     minimumSize: const Size(double.infinity, 50), // Stretch button
-                    backgroundColor: Colors.transparent, // Ensure transparent background
+                    backgroundColor: const Color.fromARGB(255, 59, 113, 185),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8), // Adjust this value for smaller radius
+                    ),
                   ),
                   child: const Text(
                     'Sign Up',
                     style: TextStyle(
                       color: Colors.white, // White text color
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
                 ),
