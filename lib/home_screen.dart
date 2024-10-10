@@ -16,15 +16,21 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
           ),
-          const Positioned(
+          Positioned(
             top: 150,
             left: 0,
             right: 0,
             child: Center(
-              child: Image(
-                image: AssetImage('assets/logo.png'),
-                height: 200,
-                fit: BoxFit.contain,
+              child: GestureDetector(
+                onTap: () {
+                  // Navigate to the UserListScreen when the logo is tapped
+                  Navigator.pushNamed(context, '/users');
+                },
+                child: const Image(
+                  image: AssetImage('assets/logo.png'),
+                  height: 200,
+                  fit: BoxFit.contain,
+                ),
               ),
             ),
           ),
